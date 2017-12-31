@@ -1,0 +1,482 @@
+{
+	"_type": "export",
+	"__export_format": 3,
+	"__export_date": "2017-12-31T10:28:19.182Z",
+	"__export_source": "insomnia.desktop.app:v5.12.4",
+	"resources": [
+		{
+			"_id": "wrk_33d8a087a2ef4d3eac139e85f1b38965",
+			"created": 1513795535680,
+			"description": "",
+			"modified": 1513795535680,
+			"name": "Adonis/Management-API",
+			"parentId": null,
+			"_type": "workspace"
+		},
+		{
+			"_id": "env_98805a6b4ec14ed3a6e0a7f15e43fe9e",
+			"color": null,
+			"created": 1513795535756,
+			"data": {
+				"Baseurl": "http://127.0.0.1:7200/"
+			},
+			"isPrivate": false,
+			"modified": 1513795593854,
+			"name": "New Environment",
+			"parentId": "wrk_33d8a087a2ef4d3eac139e85f1b38965",
+			"_type": "environment"
+		},
+		{
+			"_id": "jar_2596f1fb34294142a3d730bbc4d24519",
+			"cookies": [],
+			"created": 1513795535760,
+			"modified": 1513795535760,
+			"name": "Default Jar",
+			"parentId": "wrk_33d8a087a2ef4d3eac139e85f1b38965",
+			"_type": "cookie_jar"
+		},
+		{
+			"_id": "fld_9614ca495c6d423e95484387cf66eeac",
+			"created": 1513795543552,
+			"description": "",
+			"environment": {},
+			"metaSortKey": -1513795543552,
+			"modified": 1513795543552,
+			"name": "User",
+			"parentId": "wrk_33d8a087a2ef4d3eac139e85f1b38965",
+			"_type": "request_group"
+		},
+		{
+			"_id": "fld_0869ba43adb846f8a873aed41a71a129",
+			"created": 1513954655360,
+			"description": "",
+			"environment": {},
+			"metaSortKey": -1513954655360,
+			"modified": 1513954655360,
+			"name": "employee",
+			"parentId": "wrk_33d8a087a2ef4d3eac139e85f1b38965",
+			"_type": "request_group"
+		},
+		{
+			"_id": "fld_3ede64204cd74cd7b72a3eca62b76ad4",
+			"created": 1514542248587,
+			"description": "",
+			"environment": {},
+			"metaSortKey": -1514542248587,
+			"modified": 1514542248587,
+			"name": "emp-sal",
+			"parentId": "wrk_33d8a087a2ef4d3eac139e85f1b38965",
+			"_type": "request_group"
+		},
+		{
+			"_id": "req_999d376143dd4c5e93fce2d1d77d8925",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"email\":\"sample@gmail.com\",\n\t\"password\":\"123123\"\n}"
+			},
+			"created": 1513827626738,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_b3f5fa08e9704e2d87d03ee519743f37",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"metaSortKey": -1513827626738,
+			"method": "POST",
+			"modified": 1514701781537,
+			"name": "Login",
+			"parameters": [],
+			"parentId": "wrk_33d8a087a2ef4d3eac139e85f1b38965",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ Baseurl  }}login",
+			"_type": "request"
+		},
+		{
+			"_id": "env_0ce3abb818e3430b951a6c6e47f0e0bd",
+			"color": "#8080c0",
+			"created": 1513795607475,
+			"data": {},
+			"isPrivate": false,
+			"modified": 1513795640698,
+			"name": "baseurl",
+			"parentId": "env_98805a6b4ec14ed3a6e0a7f15e43fe9e",
+			"_type": "environment"
+		},
+		{
+			"_id": "req_7df0d6196e99471f9683c31dccb5cf07",
+			"authentication": {
+				"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImlhdCI6MTUxNDQzODkxMn0.OLbPImhId2_bXs_YrJI-8dgUzZEz-5oqYFK2_bGdnBo",
+				"type": "bearer"
+			},
+			"body": {},
+			"created": 1513795553507,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_9f3169bbcc314e5aa953ba67c1a9310c",
+					"name": "Authorization",
+					"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImlhdCI6MTUxNDQzODkxMn0.OLbPImhId2_bXs_YrJI-8dgUzZEz-5oqYFK2_bGdnBo"
+				}
+			],
+			"metaSortKey": -1513795553507,
+			"method": "GET",
+			"modified": 1514438927763,
+			"name": "getall",
+			"parameters": [],
+			"parentId": "fld_9614ca495c6d423e95484387cf66eeac",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ Baseurl  }}users/findall",
+			"_type": "request"
+		},
+		{
+			"_id": "req_3e13a5b47a024c8e9b4792a97fb696fd",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"email\":\"sample@gmail.com\",\n\t\"password\":\"123123\"\n}"
+			},
+			"created": 1513796449934,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_97893c4bb9c5422f982c7a2740b88b6e",
+					"name": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"id": "pair_9aeeae9cdb5140059b88a78e55dd6dbe",
+					"name": "Authorization",
+					"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImlhdCI6MTUxNDQ0MjM3MX0.fuWskNz09jSIH4y2-WopnVmUvsGetML8EbpPRMZZPmA"
+				}
+			],
+			"metaSortKey": -1513796449934,
+			"method": "POST",
+			"modified": 1514699223982,
+			"name": "add user",
+			"parameters": [],
+			"parentId": "fld_9614ca495c6d423e95484387cf66eeac",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ Baseurl  }}users/add",
+			"_type": "request"
+		},
+		{
+			"_id": "req_0343d7792a7648278b7e65aa25773ecf",
+			"authentication": {},
+			"body": {},
+			"created": 1513801545129,
+			"description": "",
+			"headers": [],
+			"metaSortKey": -1513801545129,
+			"method": "GET",
+			"modified": 1513801601167,
+			"name": "findbyid",
+			"parameters": [],
+			"parentId": "fld_9614ca495c6d423e95484387cf66eeac",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ Baseurl  }}users/find/:1",
+			"_type": "request"
+		},
+		{
+			"_id": "req_6e04cd2469234c2fa260fdd8475400ae",
+			"authentication": {},
+			"body": {},
+			"created": 1513801805061,
+			"description": "",
+			"headers": [],
+			"metaSortKey": -1513801805061,
+			"method": "DELETE",
+			"modified": 1513801844761,
+			"name": "delete",
+			"parameters": [],
+			"parentId": "fld_9614ca495c6d423e95484387cf66eeac",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ Baseurl  }}users/remove/3",
+			"_type": "request"
+		},
+		{
+			"_id": "req_8ebaef1158bc4d0c84117cbae26f46e4",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"email\": \"jayram22@gmail.com\",\n\t\"password\":\"2222222222\"\n}"
+			},
+			"created": 1513802131325,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_c51647b02b2b44e4ba67d61c8564ed32",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"metaSortKey": -1513802131326,
+			"method": "PUT",
+			"modified": 1513802212258,
+			"name": "update",
+			"parameters": [],
+			"parentId": "fld_9614ca495c6d423e95484387cf66eeac",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ Baseurl  }}users/update/1",
+			"_type": "request"
+		},
+		{
+			"_id": "req_87329fed6a124727a2a9dc4abc7e65b2",
+			"authentication": {},
+			"body": {},
+			"created": 1513954667180,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_145325fba1ab4ceca1b3a0b7ad7133bd",
+					"name": "Authorization",
+					"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImlhdCI6MTUxNDEwNTcxNH0.yLbj2U1WPh22SvzPGWET8xBUW4RQAcMvH47TfGmRF2w"
+				},
+				{
+					"id": "pair_afb74f4a447e441fbd986aeb6a4156c3",
+					"name": "",
+					"value": ""
+				}
+			],
+			"metaSortKey": -1513954667181,
+			"method": "GET",
+			"modified": 1514108464402,
+			"name": "getall",
+			"parameters": [],
+			"parentId": "fld_0869ba43adb846f8a873aed41a71a129",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ Baseurl  }}employee/findall",
+			"_type": "request"
+		},
+		{
+			"_id": "req_127b974cc16a43f9aa33bd7c3dd5613a",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"emp_no\": 135,\n\t\"firstname\": \"Jayaram\",\n\t\"lastname\": \"adsas\",\n\t\"gender\": \"m\",\n\t\"hiredate\": \"2017-06-01\",\n\t\"salary\": 20000,\n\t\"from_date\": \"2017-12-07\",\n\t\"to_date\": \"2017-12-26\"\n}"
+			},
+			"created": 1514096380840,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_5f64df40deb34f0989f2b04a057365d9",
+					"name": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"id": "pair_8c8817cd6aaf484c845f820cc26b0dcf",
+					"name": "Authorization",
+					"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImlhdCI6MTUxNDEwNTcxNH0.yLbj2U1WPh22SvzPGWET8xBUW4RQAcMvH47TfGmRF2w"
+				}
+			],
+			"metaSortKey": -1514096380840,
+			"method": "POST",
+			"modified": 1514710659785,
+			"name": "addemp",
+			"parameters": [],
+			"parentId": "fld_0869ba43adb846f8a873aed41a71a129",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ Baseurl  }}employee/add",
+			"_type": "request"
+		},
+		{
+			"_id": "req_fa818986a8b54f4fb0142e3071162715",
+			"authentication": {
+				"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImlhdCI6MTUxNDExMTg5MH0.q5_iiFlUu_l1R2B4_GnltCiN5bcqgj9V2y727MLRjug",
+				"type": "bearer"
+			},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\t\"emp_no\": 111\n}"
+			},
+			"created": 1514108973053,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_43cb9d64e90c42e691a95698c274ea1c",
+					"name": "Authorization",
+					"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImlhdCI6MTUxNDExMTg5MH0.q5_iiFlUu_l1R2B4_GnltCiN5bcqgj9V2y727MLRjug"
+				},
+				{
+					"id": "pair_429477e7006c4ec8a4eb047d46c16fb9",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"metaSortKey": -1514108973053,
+			"method": "GET",
+			"modified": 1514112773022,
+			"name": "getbyid",
+			"parameters": [],
+			"parentId": "fld_0869ba43adb846f8a873aed41a71a129",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ Baseurl  }}employee/find",
+			"_type": "request"
+		},
+		{
+			"_id": "req_fe5e30f7ad6f4d2c9bda92f58549ff6e",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"emp_no\":11,\n\t\"firstname\":\"super\",\n\t\"lastname\":\"adsas\",\n\t\"gender\":\"m\",\n\t\"hiredate\":\"2017-06-01\"\n}"
+			},
+			"created": 1514113283638,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_ab420deea9ca4ad486f7c0e4e2598bb7",
+					"name": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"id": "pair_7888e845e1134a44af1eef8e171a92b5",
+					"name": "Authorization",
+					"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImlhdCI6MTUxNDExNDU4M30.LOlnDOuS5xmXSyTjRPOGLiUhDa6HNdBEhdSCTiw0sW4"
+				}
+			],
+			"metaSortKey": -1514113283638,
+			"method": "PUT",
+			"modified": 1514114628994,
+			"name": "update",
+			"parameters": [],
+			"parentId": "fld_0869ba43adb846f8a873aed41a71a129",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ Baseurl  }}employee/update",
+			"_type": "request"
+		},
+		{
+			"_id": "req_87352cb01ee3430792a152f6cad4da86",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\t\t\"emp_no\": 112\n}"
+			},
+			"created": 1514114759385,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_9d6a30c14f3b40ba8df998fb7c7954c5",
+					"name": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"id": "pair_0837bbb5cc3847c097a61a47737ea632",
+					"name": "Authorization",
+					"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImlhdCI6MTUxNDExNDU4M30.LOlnDOuS5xmXSyTjRPOGLiUhDa6HNdBEhdSCTiw0sW4"
+				}
+			],
+			"metaSortKey": -1514114759385,
+			"method": "DELETE",
+			"modified": 1514114961600,
+			"name": "delete",
+			"parameters": [],
+			"parentId": "fld_0869ba43adb846f8a873aed41a71a129",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ Baseurl  }}employee/remove",
+			"_type": "request"
+		},
+		{
+			"_id": "req_21885114aebc487aa0725eab9565f695",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"emp_no\":135\n}"
+			},
+			"created": 1514701678894,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_1cafd24de924436988a2349a87aee12e",
+					"name": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"id": "pair_3da1adfd58874a2ca9c1672699275be0",
+					"name": "Authorization",
+					"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjIsImlhdCI6MTUxNDcwMTc4M30.S_OxqMu8RSabn-QgEqLMVLtFIEerLDvLMsDnd6JPsjk"
+				}
+			],
+			"metaSortKey": -1514701678894,
+			"method": "GET",
+			"modified": 1514711665608,
+			"name": "emp_salary",
+			"parameters": [],
+			"parentId": "fld_0869ba43adb846f8a873aed41a71a129",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ Baseurl  }}employee/salary",
+			"_type": "request"
+		},
+		{
+			"_id": "req_953f3c1aa8df404abfa95a7e50cf3584",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "{\n\t\"emp_no\":1\n}"
+			},
+			"created": 1514542264185,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_1979afc2d13c4a8bad0e1dd2edd22e92",
+					"name": "Authorization",
+					"value": "Bearer  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImlhdCI6MTUxNDU2NDM4Nn0._w3DbplDpToJnQyDV_cBhv9QmzhNZah1XUBeyiBR70E"
+				},
+				{
+					"id": "pair_ff0485015b314547821f1eff7d888eae",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"metaSortKey": -1514542264185,
+			"method": "GET",
+			"modified": 1514650255058,
+			"name": "getall-sal",
+			"parameters": [],
+			"parentId": "fld_3ede64204cd74cd7b72a3eca62b76ad4",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ Baseurl  }}salary/find/1",
+			"_type": "request"
+		}
+	]
+}
