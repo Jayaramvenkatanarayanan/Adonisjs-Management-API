@@ -36,33 +36,52 @@ class EmployeeController {
     const empInput = request.only(['emp_no', 'firstname', 'lastname', 'gender', 'hiredate']);
     const empSalInput = request.only(['salary', 'from_date', 'to_date']);
     const empValidation = await Validator.validate(empInput, Employee.AddNewEmployee, Employee.AddEmployeeError);
+    const empSalValidaton = await Validator.validate(empSalInput, EmpSalary.Addempsal, EmpSalary.AddEmpSalError);
     if (empValidation.fails()) {
+      console.log(empValidation);
       return response.status(400).json({
         data: empValidation._errorMessages[0].message,
         message: 'Employee registration fail',
         status: false
       });
     }
-    var emp = new Employee();
-    emp.emp_no = empInput.emp_no;
-    emp.firstname = empInput.firstname;
-    emp.lastname = empInput.lastname;
-    emp.gender = empInput.gender;
-    emp.hiredate = empInput.hiredate;
-    await emp.save();
-    var employee = await Employee.findBy('emp_no', empInput.emp_no);
-    console.log(employee);
-    const empSal = await employee.salaries().create({
-      "salary": empSalInput.salary,
-      "from_date": empSalInput.from_date,
-      "to_date": empSalInput.to_date 
+    if (empSalValidaton.fails()) {
+      console.log(empSalValidaton);
+      return response.status(400).json({
+        data: empSalValidaton._errorMessages[0].message,
+        message: 'Employee registration fail',
+        status: false
+      });
+    }
+    var empData = {
+      'emp_no': empInput.emp_no, 'firstname': empInput.firstname,
+      'lastname': empInput.lastname,
+      'gender': empInput.gender,
+      'hiredate': empInput.hiredate,
+      'created_at': new Date(),
+      'updated_at': new Date()
+    };
+    var empSal = {
+      'emp_no': empInput.emp_no, 'salary': empSalInput.salary,
+      'from_date': empSalInput.from_date,
+      'to_date': empSalInput.to_date
+    };
+    // transaction  method first insert the emp then empsal records insert
+    await dataBase.transaction(async (trx, err) => {
+      await trx.insert(empData).into('employees');
+      await trx.insert(empSal).into('salaries');
+      return response.status(201).json({
+        message: "Employee save successful",
+        status: true
+      });
+      if (err) {
+        return response.status(201).json({
+          err: err,
+          message: "Employee save successful",
+          status: true
+        });
+      }
     });
-    console.log(empSal);
-    return response.status(201).json({
-      message: "Employee save successful",
-      status: true
-    });
-
 
   }
 
@@ -99,7 +118,6 @@ class EmployeeController {
     }
     const empInput = request.only(['emp_no', 'firstname', 'lastname', 'gender', 'hiredate']);
     const empValidation = await Validator.validate(empInput, Employee.UpdateEmployee, Employee.AddEmployeeError);
-    console.log(empValidation);
     if (empValidation.fails()) {
       return response.status(400).json({
         data: empValidation._errorMessages[0].message,
@@ -138,24 +156,31 @@ class EmployeeController {
   async empsal({request, response}) {
     var {emp_no} = request.only('emp_no');
     const outPut = {};
+    const checkUser = await Employee.findBy('emp_no', emp_no);
     var user = await EmpSalary.findBy('emp_no', emp_no);
-    if (!user) {
+    if (!checkUser) {
       return response.status(404).json({
         data: 'no data found',
         message: 'Id does not match /  no records found',
         status: false
       });
     }
-    const empSalary = await user.Empsal().fetch();
-    outPut.empSalary = user;
-    outPut.empDetails = empSalary;
+    if (user) {
+      const empSalary = await user.Empsal().fetch();
+      outPut.empSalary = user;
+      outPut.empDetails = empSalary;
+    } else {
+      outPut.empSalary = {};
+      outPut.empDetails = checkUser;
+    }
     return response.status(200).json({
       data: outPut,
       message: 'get the record',
       status: true
     });
+    
   }
 }
 
-
+ 
 module.exports = EmployeeController;

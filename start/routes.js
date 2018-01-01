@@ -39,15 +39,13 @@ Route.group(() => {
    Route.put('update', 'EmployeeController.Empupdate');
    Route.delete('remove', 'EmployeeController.Remove');
    Route.get('salary','EmployeeController.empsal');
-}).prefix('employee')
+}).prefix('employee').middleware('jwtCheck');
 
 //Emp-Salary
 
 Route.group(() => {
-  Route.post('add', 'EmpsalaryController.Store');
-  Route.get('find/:emp_no', 'EmpsalaryController.Showid');
-  Route.put('update', 'EmpsalaryController.Empupdate');
-  Route.delete('remove', 'EmpsalaryController.Remove');
+  Route.get('find', 'EmpsalaryController.Showid');
+  Route.put('update', 'EmpsalaryController.Salupdate');
 }).prefix('salary');
 
 

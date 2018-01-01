@@ -30,7 +30,6 @@ class Employee extends Model {
   static get AddEmployeeError() {
     return {
       'emp_no.required': 'Employee no required',
-      'emp_no.number': 'Employee no should be a number',
       'emp_no.unique': 'Already this Employee no registered',
       'firstname.required': 'firstname is required',
       'firstname.min': 'firstname should be min 5 characters',
@@ -39,7 +38,6 @@ class Employee extends Model {
       'hiredate.required': 'hiredate should be need',
       'gender.required': 'gender should be mention',
       'gender.in': 'gender m,f format only'
-
     }
   }
 
