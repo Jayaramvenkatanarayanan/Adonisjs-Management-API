@@ -13,14 +13,14 @@ Our Goal:
 7.	Attachment mails ( coming soon)
 9.	Custom Exception ( coming soon)
 
-#DB Design
+# DB Design
 
 ![dbdesign](https://user-images.githubusercontent.com/14818202/34469434-bd7ea52e-ef44-11e7-8928-4877ec2e6d5e.png)
 
 
 
 
-Relationship status:
+# Relationship status:
 1.	many-to-many relationship between employees and departments
 2.	one-to-many relationship between employees and titles.
 3.	One-to-one relationship between employees and salaries.
