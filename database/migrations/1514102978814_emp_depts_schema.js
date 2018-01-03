@@ -10,6 +10,7 @@ class EmpDeptsSchema extends Schema {
       table.string('dep_no').index().references('dep_no').inTable('departments').onDelete('CASCADE');
       table.date('from_date').notNullable();
       table.date('to_date').notNullable();
+      table.primary(['emp_no','dep_no']);
     })
   }
 

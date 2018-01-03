@@ -9,7 +9,7 @@ class SalariesSchema extends Schema {
       table.integer('salary').notNullable();
       table.date('from_date').notNullable();
       table.date('to_date').notNullable();
-      table.primary(['from_date']);
+      table.primary(['emp_no','from_date']);
     })
   }
 

@@ -20,8 +20,17 @@ class Salaries extends Model {
       to_date: 'date_format:YYYY-MM-DD|required'
     }
   }
+    static get Addempsalary(){
+        return {
+            emp_no:'required',
+            salary: 'required',
+            from_date: 'date_format:YYYY-MM-DD|required',
+            to_date: 'date_format:YYYY-MM-DD|required'
+        }
+    }
   static get AddEmpSalError(){
     return{
+      'emp_no.required':'emp_no.required',
       'from_date.date_format': 'date format should be like this:YYYY-MM-DD',
       'salary.required': 'salary field required',
       'from_date.required': 'from_date should be need',

@@ -10,7 +10,7 @@ class EmpTitlesSchema extends Schema {
       table.string('title').notNullable();
       table.date('from_date').notNullable();
       table.date('to_date').notNullable();
-      table.primary(['title','from_date']);
+      table.primary(['emp_no','title','from_date']);
     })
   }
 
