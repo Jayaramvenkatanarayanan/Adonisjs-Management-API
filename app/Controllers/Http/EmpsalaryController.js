@@ -30,7 +30,6 @@ class EmpsalaryController {
     //update
 
     async Salupdate({request, response}) {
-
         var empInput = request.only(['emp_no', 'salary', 'to_date']);
         var empSal = await EmpSalary.findBy('emp_no', empInput.emp_no);
         if (empSal != null) {

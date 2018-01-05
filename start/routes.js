@@ -54,5 +54,3 @@ Route.group(() => {
     Route.get('find', 'EmpTitleController.Showtitle');
     Route.put('update', 'EmpTitleController.Salupdate');
 }).prefix('title');
-
-
